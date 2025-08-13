@@ -7,13 +7,13 @@ const router = express.Router()
 
 
 
-router.get("/transaction/:userId",getTransactionByUserId )
+router.get("/:userId",getTransactionByUserId )
  
-router.delete("/transaction/:id", deleteTrasactionById )
+router.delete("/:id", deleteTrasactionById )
 
-router.get('/transaction/summary/:userId', getSummaryByUserId )
+router.get('/summary/:userId', getSummaryByUserId )
 
-router.post("/transactions", CreateTransaction )
+router.post("/", CreateTransaction )
 
 
 
