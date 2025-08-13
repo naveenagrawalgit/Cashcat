@@ -81,7 +81,7 @@ export async function CreateTransaction (req,res)  {
         VALUES (${user_id},${title},${amount},${category})
         RETURNING *
         `;
-        console.log(transaction)
+        console.log(transaction[0], 'log in create transactions',transaction)
         res.status(201).json(transaction[0])
 
 
