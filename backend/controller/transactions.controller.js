@@ -49,7 +49,7 @@ export async function getSummaryByUserId (req,res) {
        const summary = await sql`SELECT
         SUM(amount) AS balance,
         COALESCE(SUM(CASE WHEN category = 'Income' THEN amount ELSE 0 END),0) AS income,
-        COALESCE(SUM(CASE WHEN category = 'Expense' THEN amount ELSE 0 END),0) AS expense
+        COALESCE(SUM(CASE WHEN category != 'Income' THEN amount ELSE 0 END),0) AS expense
         FROM transactions WHERE user_id = ${userId}
        `
         console.log(summary)
